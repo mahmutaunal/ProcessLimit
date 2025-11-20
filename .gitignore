@@ -1,15 +1,56 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Gradle
+.gradle/
+build/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
 local.properties
+gradle.properties
+*.iml
+
+# Android Studio / IntelliJ
+.idea/
+*.ipr
+*.iws
+
+# Log files
+*.log
+
+# Generated files
+captures/
+outputs/
+generated/
+
+# Keystore files (never push these)
+*.jks
+*.keystore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.ear
+*.hprof
+
+# Miscellaneous
+*.swp
+*.lock
+*.tmp
+*.orig
+
+# APK build outputs
+*.apk
+*.ap_
+app/release/
+app/debug/
+
+# Crash reports
+crashlytics-build.properties
+
+# Jetpack Compose compiler cache
+**/compose-cache/
