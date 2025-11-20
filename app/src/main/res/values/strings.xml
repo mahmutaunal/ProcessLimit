@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Process Limit</string>
+    <string name="title_process_limit">Process Limit Tuner</string>
+    <string name="label_current_value">Mevcut activity_manager_constants değeri:</string>
+    <string name="label_empty_or_default">Yok / varsayılan</string>
+    <string name="btn_apply_zero">Arka plan sınırını 0 yap</string>
+    <string name="toast_applied">max_cached_processes=0 uygulandı</string>
+    <string name="toast_permission_denied">İzin yok: WRITE_SECURE_SETTINGS verilmemiş olabilir</string>
+    <string name="toast_error">Hata: %1$s</string>
+</resources>
