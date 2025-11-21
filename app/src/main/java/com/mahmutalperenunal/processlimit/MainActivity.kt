@@ -95,59 +95,76 @@ fun ProcessLimitScreen(
 
     LaunchedEffect(Unit) {
         currentValue = getCurrentValue()
+        focusRequester.requestFocus()
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background)
-            .padding(32.dp)
+            .padding(horizontal = 64.dp, vertical = 48.dp)
     ) {
         Column(
-            modifier = Modifier.align(Alignment.Center),
+            modifier = Modifier
+                .align(Alignment.Center)
+                .widthIn(max = 720.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 text = stringResource(id = R.string.title_process_limit),
-                fontSize = 28.sp,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 16.dp),
+                style = MaterialTheme.typography.headlineMedium.copy(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 30.sp
+                ),
                 textAlign = TextAlign.Center
             )
+
+            Spacer(modifier = Modifier.height(16.dp))
 
             Text(
                 text = stringResource(id = R.string.label_current_value),
-                fontSize = 18.sp,
-                modifier = Modifier.padding(bottom = 8.dp),
+                style = MaterialTheme.typography.bodyMedium.copy(
+                    fontSize = 18.sp,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.85f)
+                ),
                 textAlign = TextAlign.Center
             )
 
+            Spacer(modifier = Modifier.height(8.dp))
+
             Text(
                 text = currentValue ?: stringResource(id = R.string.label_empty_or_default),
-                fontSize = 16.sp,
-                modifier = Modifier.padding(bottom = 24.dp),
+                style = MaterialTheme.typography.bodySmall.copy(
+                    fontSize = 16.sp,
+                    color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.65f)
+                ),
                 textAlign = TextAlign.Center
             )
+
+            Spacer(modifier = Modifier.height(32.dp))
 
             Button(
                 modifier = Modifier
                     .focusRequester(focusRequester)
                     .focusable()
-                    .width(320.dp)
+                    .width(360.dp)
                     .height(72.dp),
                 onClick = {
                     onApplyClick()
                     currentValue = getCurrentValue()
                 }
             ) {
-                Text(
-                    text = stringResource(id = R.string.btn_apply_zero),
-                    fontSize = 18.sp
-                )
-            }
-
-            LaunchedEffect(Unit) {
-                focusRequester.requestFocus()
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        modifier = Modifier.fillMaxWidth(),
+                        text = stringResource(id = R.string.btn_apply_zero),
+                        fontSize = 18.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
             }
         }
     }
